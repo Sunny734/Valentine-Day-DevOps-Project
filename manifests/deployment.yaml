@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Valentine-App
+  labels:
+    app: Valentine-App
+  namespace: namespace-workflow-1710128054218
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Valentine-App
+  template:
+    metadata:
+      labels:
+        app: Valentine-App
+    spec:
+      containers:
+        - name: Valentine-App
+          image: myaksconatiner.azurecr.io/image-workflow-1710128054218:latest
+          ports:
+            - containerPort: 8080
